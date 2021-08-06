@@ -1,0 +1,27 @@
+.active-book {
+    margin: center auto;
+    min-height: 550px;
+    max-height: 625px;
+    min-width: 300px;
+    max-width: 550px;
+    line-height: 1.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    padding: 10px;
+ }
+ 
+ .active-book h2 {
+    margin-top: 10px;
+    color: #666666;
+    line-height: 1.3em;
+ }
+ 
+ .active-video h3 {
+    margin-top: 5px;
+    
+ }
+ 
+ .active-book iframe {
+    border: none;
+ }

@@ -2,7 +2,7 @@ import React from "react";
 import SearchBar from "../searchBar/searchBar";
 import Bookshelf from "../bookshelf/bookshelf";
 import RelatedBooks from "../relatedBooks/relatedBooks";
-import CurrentBook from "../currentBook/currentBook";
+import ActiveBook from "../activeBook/activeBook";
 
 const Main = (props) => {
   return (
@@ -14,7 +14,7 @@ const Main = (props) => {
         <div>
           <Bookshelf />
         </div>
-          <CurrentBook />
+          <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/>
         <div>
           <RelatedBooks />
         </div>
