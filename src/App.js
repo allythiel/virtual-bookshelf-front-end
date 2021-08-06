@@ -121,7 +121,7 @@ const App = () => {
  const handleUserChange = (event) => {    
   event.persist();
   setNewUser(prevNewUser => ({ ...prevNewUser, [event.target.name]: event.target.value }));
-  console.log(newUser);
+  // console.log(newUser);
 }
 
  //Message Bar
