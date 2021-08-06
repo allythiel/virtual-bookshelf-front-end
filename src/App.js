@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from './components/header/header';
 import MessageBar from './components/messageBar/messageBar';
 import AppLogin from './components/appLogin/appLogin';
+import Main from './components/main/main';
 import './App.css';
 
 const App = () => {
@@ -136,7 +137,7 @@ const handleCloseMessageBar = () => {     // MessageBar component
       {!loggedIn && <AppLogin newUser={newUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} />}
 
-      {(loggedIn & loggedInUser) }
+      {(loggedIn & loggedInUser) && <Main users={users} loggedInUser={loggedInUser} />}
       </div> 
       {/* <Footer /> */}
     </div>

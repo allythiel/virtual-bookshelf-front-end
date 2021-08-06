@@ -21,7 +21,9 @@
     width: 400px;
     border: 3px solid var(--theme-light);
     padding: 25px;
-    margin-top: 200px;
+    margin-top: 165px;
+    margin-bottom: 165px;
+    margin-left: 450px;
     border-radius: 10px;
     background-color: var(--theme-medium);
     box-shadow: 2px 2px 5px #666666;

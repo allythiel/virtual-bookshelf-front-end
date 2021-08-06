@@ -5,7 +5,7 @@ import './header.css';
 const Header = (props) => {
    return (
       <div className='header'>
-         <Banner loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn} handleLoginAvatarClick={props.handleLoginAvatarClick} loggedInUser={props.loggedInUser} setCurrentUser={props.setCurrentUser} currentUser={props.currentUser} />
+         <Banner loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn} handleLoginAvatarClick={props.handleLoginAvatarClick} loggedInUser={props.loggedInUser} />
       </div>
    )
 }
