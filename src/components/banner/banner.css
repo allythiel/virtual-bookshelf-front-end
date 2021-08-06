@@ -48,12 +48,3 @@
     color: var(--theme-medium);
  }
  
- .banner .friend-request-status {
-    margin: 10px;
-    width: 150px;
- }
- 
- .friend-request-status .button-md {
-    width: 100%;
-    text-align: right;
- }

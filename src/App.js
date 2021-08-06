@@ -92,7 +92,9 @@ const App = () => {
   }, [loginData])
 
 
-///HANDLERS
+  //////////////////////////////////////////////////////////////////////////
+  //                              HANDLERS                             //
+  //////////////////////////////////////////////////////////////////////////
 
   const handleUserSubmit = (event) => {     // AppLogin
     event.preventDefault();
@@ -113,19 +115,31 @@ const App = () => {
           email: '',
        });
        document.getElementById('app').style.backgroundColor = '#999999';
-       //alert('submit form');
     }
  }
-
- const handleUserChange = (event) => {     // AppLogin
+ // AppLogin
+ const handleUserChange = (event) => {    
   event.persist();
   setNewUser(prevNewUser => ({ ...prevNewUser, [event.target.name]: event.target.value }));
   console.log(newUser);
 }
 
-const handleCloseMessageBar = () => {     // MessageBar component
+ //Message Bar
+const handleCloseMessageBar = () => {     
   setShowMessageBar(false);
   setMessageText('');
+}
+
+// Handle Search Submit
+const handleSearchSubmit = (event) => {
+  event.preventDefault();
+  getCurrentBook(searchText);
+  setSearchText('');
+}
+
+// Handle Search Change
+const handleSearchChange = (event) => {
+  setSearchText(event.target.value);
 }
 
 
@@ -136,10 +150,8 @@ const handleCloseMessageBar = () => {     // MessageBar component
     <div className='context'>
       {!loggedIn && <AppLogin newUser={newUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} />}
-
-      {(loggedIn & loggedInUser) && <Main users={users} loggedInUser={loggedInUser} />}
+      {loggedIn && <Main users={users} loggedInUser={loggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange}/>}
       </div> 
-      {/* <Footer /> */}
     </div>
   );
 }

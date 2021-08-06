@@ -9,7 +9,7 @@ const Main = (props) => {
     <div className="main">
       <div>
         <div>
-          <SearchBar />
+          <SearchBar handleSearchChange={props.handleSearchChange} handleSearchSubmit={props.handleSearchSubmit} searchText={props.searchText} setSearchText={props.setSearchText}/>
         </div>
         <div>
           <Bookshelf />
