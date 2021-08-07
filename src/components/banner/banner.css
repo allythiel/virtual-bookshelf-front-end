@@ -1,4 +1,4 @@
-/* .banner {
+.banner {
     text-align: left;
     width: 100%;
     color: var(--theme-dark);
@@ -24,12 +24,11 @@
     margin-left: 5px;
     font-style: italic;
  }
- 
- 
- .banner img {
- width: 75px;
- padding: 0;
- margin: 0;
+
+ .banner img{
+    width: 100px;
+    padding:0;
+    margin:0;
  }
  
  .banner .user-info {
@@ -43,4 +42,3 @@
     color: var(--theme-dark);
     font-size: 2.5em;
  }
-  */
