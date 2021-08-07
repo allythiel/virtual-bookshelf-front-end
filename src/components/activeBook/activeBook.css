@@ -1,13 +1,10 @@
-.active-book {
+/* .active-book {
     margin: center auto;
     min-height: 550px;
     max-height: 625px;
     min-width: 300px;
     max-width: 550px;
     line-height: 1.5em;
-    text-overflow: ellipsis;
-    overflow: hidden;
-
     padding: 10px;
  }
  
@@ -24,4 +21,4 @@
  
  .active-book iframe {
     border: none;
- }
+ } */

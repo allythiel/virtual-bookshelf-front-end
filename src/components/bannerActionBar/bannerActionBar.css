@@ -1,23 +1,10 @@
-.banner-action-bar {
+/* .banner-action-bar {
     display: flex;
     margin-top: 10px;
-}
-
-.banner-action-bar .request-pending {
-    border-radius: 10px;
-    max-width: 50px;
-    min-width: 25px;
-    padding: 1px 5px;
-    background-color: var(--theme-light);
-    color: var(--theme-dark);
-}
-
-.banner-action-bar .request-text {
-    width: 150px;
 }
 
 .banner-action-bar .login img {
     width: 48px;
     padding: 7px 10px 7px 10px;
 
-}
+} */
