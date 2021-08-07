@@ -1,16 +1,12 @@
-/* .active-book {
+.active-book {
     margin: center auto;
-    min-height: 550px;
-    max-height: 625px;
-    min-width: 300px;
-    max-width: 550px;
     line-height: 1.5em;
     padding: 10px;
  }
  
  .active-book h2 {
     margin-top: 10px;
-    color: #666666;
+    color: #000000;
     line-height: 1.3em;
  }
  
@@ -18,7 +14,8 @@
     margin-top: 5px;
     
  }
- 
- .active-book iframe {
-    border: none;
- } */
+
+ .active-book img{
+    width: 250px;
+    margin: center auto;
+ }
