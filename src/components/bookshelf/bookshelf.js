@@ -4,7 +4,9 @@ import './bookshelf.css'
 const Bookshelf = (props) => {
     return (
         <div className="bookshelf">
-            <div> Bookshelf </div>
+            <div> 
+                <h2>Bookshelf</h2>
+            </div>
 
         </div>
     )
