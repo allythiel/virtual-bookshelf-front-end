@@ -12,9 +12,10 @@ const Main = (props) => {
           <SearchBar handleSearchChange={props.handleSearchChange} handleSearchSubmit={props.handleSearchSubmit} searchText={props.searchText} setSearchText={props.setSearchText}/>
         </div>
         <div>
-          <Bookshelf />
-        </div>
+          <Bookshelf /> 
           <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/>
+        </div>
+          {/* <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/> */}
         <div>
           <RelatedBooks />
         </div>

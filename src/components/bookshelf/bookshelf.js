@@ -3,8 +3,9 @@ import './bookshelf.css'
 
 const Bookshelf = (props) => {
     return (
-        <div>
-            
+        <div className="bookshelf">
+            <div> Bookshelf </div>
+
         </div>
     )
 }
