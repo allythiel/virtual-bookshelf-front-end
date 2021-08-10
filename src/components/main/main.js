@@ -6,17 +6,14 @@ import ActiveBook from "../activeBook/activeBook";
 
 const Main = (props) => {
   return (
-    <div className="main">
+    <div>
       <div>
         <div>
           <SearchBar handleSearchChange={props.handleSearchChange} handleSearchSubmit={props.handleSearchSubmit} searchText={props.searchText} setSearchText={props.setSearchText}/>
         </div>
-        <div>
+        <div className='main'>
           <Bookshelf /> 
           <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/>
-        </div>
-          {/* <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/> */}
-        <div>
           <RelatedBooks />
         </div>
       </div>

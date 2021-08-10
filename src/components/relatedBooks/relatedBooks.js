@@ -3,9 +3,12 @@ import './relatedBooks.css';
 
 const RelatedBooks = () => {
     return (
-        <div>
-            
+        <div className="relatedbooks">
+        <div> 
+            <h2>Related Books</h2>
         </div>
+
+    </div>
     )
 }
 

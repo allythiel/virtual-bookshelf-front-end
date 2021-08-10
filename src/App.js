@@ -114,7 +114,7 @@ const App = () => {
           password: '',
           email: '',
        });
-       document.getElementById('app').style.backgroundColor = '#999999';
+      //  document.getElementById('app');
     }
  }
  // AppLogin
@@ -147,11 +147,11 @@ const handleSearchChange = (event) => {
     <div id='app' className='App'>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} />
       {showMessageBar && <MessageBar messageText={messageText} setShowMessageBar={setShowMessageBar} handleCloseMessageBar={handleCloseMessageBar} />}
-    <div className='context'>
+    <div className='Context'>
       {!loggedIn && <AppLogin newUser={newUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} />}
       {loggedIn && <Main users={users} loggedInUser={loggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}/>}
-      </div> 
+      </div>
     </div>
   );
 }
