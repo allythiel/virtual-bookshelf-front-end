@@ -1,6 +1,6 @@
 import React from 'react';
 import './activeBook.css';
-import ListComments from '../comments/listComments/listComments';
+import CreateComment from '../comments/createComment/createComment';
 
 const ActiveBook = (props) => {
     return (
@@ -10,7 +10,7 @@ const ActiveBook = (props) => {
             {props.currentBook ? props.currentBook.volumeInfo ? <div><h4>Average Rating: {props.currentBook.volumeInfo.averageRating} /5 </h4> </div> : '' : '' }
             {props.currentBook ? props.currentBook.volumeInfo ? <div><p>{props.currentBook.volumeInfo.description}</p> </div> : '' : '' }
         <div className='view-comments'>
-            <ListComments />
+            {props.currentBook ? <CreateComment handleNewCommentChange={props.handleNewCommentChange} handleNewCommentSubmit={props.handleNewCommentSubmit} newComment = {props.newComment} setNewComment={props.setNewComment} comments={props.comments} setComments={props.setComments}/>  : ''}
         </div>
         </div>
     )

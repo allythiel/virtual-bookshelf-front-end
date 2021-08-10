@@ -13,7 +13,7 @@ const Main = (props) => {
         </div>
         <div className='main'>
           <Bookshelf /> 
-          <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/>
+          <ActiveBook currentBook={props.currentBook} setCurrentBook={props.setCurrentBook} handleNewCommentChange={props.handleNewCommentChange} handleNewCommentSubmit={props.handleNewCommentSubmit} newComment = {props.newComment} setNewComment={props.setNewComment} comments={props.comments} setComments={props.setComments}/>
           <RelatedBooks />
         </div>
       </div>
@@ -21,4 +21,4 @@ const Main = (props) => {
   );
 };
 
-export default Main;
+export default Main; 
