@@ -26,6 +26,7 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
   const [messageText, setMessageText] = useState('');
   const [showMessageBar, setShowMessageBar] = useState(false);
+  const [newComment, setNewComment] = useState('');
 
 
   //////////////////////////////////////////////////////////////////////////
@@ -60,10 +61,17 @@ const App = () => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].id.bookId) }).catch(err => console.log(err.message));
   }
 
-  //ADD NEW POSTING
-  // const postNewComment = async (userId, data) => {
-  //   await axios.post(`${apiPath}/${userId}/comment`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
-  // }
+
+// Get Book Comment by Book ID
+const getCommentsByBookID = (bookId) => {
+  axios.get(`${apiPath}/${bookId}`).then((res) => {setComments(res.data) }).catch((err) => console.log(err));
+}
+
+
+  // ADD NEW POSTING
+  const postNewComment = async (userId, data) => {
+    await axios.post(`${apiPath}/${userId}/comment`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
+  }
 
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
@@ -90,6 +98,11 @@ const App = () => {
     postUserLogin(loginData);
     console.log('postUserLogin');
   }, [loginData])
+
+  useEffect(() => {
+    getCommentsByBookID(currentBookId);
+    console.log('getCommentsByBookId');
+  }, [currentBookId]);
 
 
   //////////////////////////////////////////////////////////////////////////
@@ -142,6 +155,24 @@ const handleSearchChange = (event) => {
   setSearchText(event.target.value);
 }
 
+//handle New Comment
+const handleNewCommentSubmit = (event) => {
+  event.preventDefault();
+  const comment = {
+    text: postNewComment,
+    author: loggedInUser,
+    bookId: currentBookId,
+  }
+  postNewComment(comment);
+  comments.push(comment);
+  setNewComment('');
+}
+
+// Handle Comment Change
+const handleNewCommentChange = (event) => {
+  setNewComment(event.target.value);
+}
+
 
   return (
     <div id='app' className='App'>
@@ -150,7 +181,8 @@ const handleSearchChange = (event) => {
     <div className='Context'>
       {!loggedIn && <AppLogin newUser={newUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} />}
-      {loggedIn && <Main users={users} loggedInUser={loggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}/>}
+      {loggedIn && <Main users={users} loggedInUser={loggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
+        handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} />}
       </div>
     </div>
   );
