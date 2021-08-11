@@ -61,10 +61,13 @@ const App = () => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].id.bookId) }).catch(err => console.log(err.message));
   }
 
+// const getAllComments = (userId) => {
+//   await axios.get(`${apiPath}/${userId}/comments`).then((res))
+// }
 
 // Get Book Comment by Book ID
-const getCommentsByBookID = (bookId) => {
-  axios.get(`${apiPath}/${bookId}`).then((res) => {setComments(res.data) }).catch((err) => console.log(err));
+const getCommentsByBookID = (bookId, comments) => {
+  axios.get(`${apiPath}/${comments}/${bookId}`).then((res) => {setComments(res.data) }).catch((err) => console.log(err));
 }
 
 

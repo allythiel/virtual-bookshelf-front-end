@@ -16,7 +16,7 @@ const CreateComment = (props) => {
                <input type='text' name='comment'
                   onChange={props.handleNewCommentChange}
                   value={props.newComment}
-                  placeholder='Add a public comment...'></input>
+                  placeholder='Add a New Review...'></input>
             </form>
          </div>
       </div>
