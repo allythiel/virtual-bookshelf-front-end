@@ -8,7 +8,7 @@ const BannerActionBar = (props) => {
          <div className="user-info">Hi, {props.loggedInUser.name.split(' ')[0]}
          </div>
 
-         <div className="login"><img onClick={props.handleLoginAvatarClick} src={loginAvatar}
+         <div className="login"><img onClick={props.handleLogin} src={loginAvatar}
             alt="" /></div>
       </div>
    )

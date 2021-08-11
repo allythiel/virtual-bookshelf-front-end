@@ -1,7 +1,7 @@
 import React from 'react';
-import BannerActionBar from '../bannerActionBar/bannerActionBar';
 import './banner.css';
 import logo from '../../images/bookshelf-logo.png';
+import loginAvatar from '../../images/login-placeholder.png';
 
 const Banner = (props) => {
    return (
@@ -11,7 +11,12 @@ const Banner = (props) => {
             <div><h1>Virtual Bookshelf</h1></div>
          </div>
          <div>
-            {(props.loggedIn && props.loggedInUser) && <BannerActionBar loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn} handleLoginAvatarClick={props.handleLoginAvatarClick} loggedInUser={props.loggedInUser} /> }
+      <div className="banner-action-bar">
+         {/* <div className="user-info">Hi, {props.loggedInUser.name.split(' ')[0]}
+         </div> */}
+         <div className="login"><img onClick={props.handleLogin} src={loginAvatar}
+            alt="" /></div>
+         </div>            
          </div>
       </div>
    )
