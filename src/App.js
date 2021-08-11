@@ -21,7 +21,6 @@ const App = () => {
   const [register, setRegister] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
   const [currentBook, setCurrentBook] = useState(null);
   const [currentBookId, setCurrentBookId] = useState(null);
   const [searchText, setSearchText] = useState('');
@@ -54,7 +53,7 @@ const App = () => {
 
  // Post User Login
  const postUserLogin = async (email) => {
-  await axios.post(`${apiPath}`, email).then((res) => { setLoggedInUser(res.data); setCurrentUser(res.data); }).catch((err) => { console.log(err); });
+  await axios.post(`${apiPath}/login`, email).then((res) => { setLoggedInUser(res.data) }).catch((err) => { console.log(err); });
 }
   
 // Get Current Book
@@ -85,8 +84,8 @@ const getCommentsByBookID = (bookId, comments) => {
   useEffect(() => {
     getAllUsers();
     console.log('getAllUsers');
-  }, [currentUser])
-  console.log(currentUser);
+  }, [loggedInUser])
+
 
 
   useEffect(() => {
@@ -132,7 +131,7 @@ const getCommentsByBookID = (bookId, comments) => {
           password: '',
           email: '',
        });
-      //  document.getElementById('app');
+       document.getElementById('app');
     }
  }
  // AppLogin
@@ -186,12 +185,12 @@ const handleNewCommentChange = (event) => {
 
   return (
     <div id='app' className='App'>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogin={handleLogin}/>
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} handleLogin={handleLogin}/>
       {showMessageBar && <MessageBar messageText={messageText} setShowMessageBar={setShowMessageBar} handleCloseMessageBar={handleCloseMessageBar} />}
     <div className='Context'>
-      {!loggedIn && <AppLogin newUser={newUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
+      {!loggedIn && <AppLogin newUser={newUser} setNewUser={setNewUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} />}
-      {(loggedIn && currentUser) && <Main users={users} loggedInUser={loggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
+      {loggedIn  && <Main users={users} loggedInUser={loggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
         handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments}/>}
       </div>
     </div>

@@ -13,7 +13,7 @@ const Main = (props) => {
         </div>
         <div className='main'>
           <Bookshelf /> 
-          <ActiveBook users={props.users} currentBook={props.currentBook} setCurrentBook={props.setCurrentBook} handleNewCommentChange={props.handleNewCommentChange} handleNewCommentSubmit={props.handleNewCommentSubmit} newComment = {props.newComment} setNewComment={props.setNewComment} comments={props.comments} setComments={props.setComments} currentUser={props.currentUser} setCurrentUser={props.SetCurrentUser}/>
+          <ActiveBook users={props.users} currentBook={props.currentBook} setCurrentBook={props.setCurrentBook} handleNewCommentChange={props.handleNewCommentChange} handleNewCommentSubmit={props.handleNewCommentSubmit} newComment = {props.newComment} setNewComment={props.setNewComment} comments={props.comments} setComments={props.setComments}/>
           <RelatedBooks />
         </div>
       </div>
