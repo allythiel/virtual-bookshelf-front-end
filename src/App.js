@@ -14,7 +14,7 @@ const App = () => {
       name: '',
       password: '',
       email: '',
-    })
+    });
   
   const [newUserData, setNewUserData] = useState(null);
   const [loginData, setLoginData] = useState(null);
@@ -53,12 +53,13 @@ const App = () => {
 
  // Post User Login
  const postUserLogin = async (email) => {
-  await axios.post(`${apiPath}/login`, email).then((res) => { setLoggedInUser(res.data) }).catch((err) => { console.log(err); });
+  await axios.post(`${apiPath}/login`, email).then((res) => { setLoggedInUser(res.data) }).catch((err) => { console.log(err.response.request._response); });
 }
+console.log('loggedInUser Test', loggedInUser);
   
 // Get Current Book
   const getCurrentBook = (searchText) => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].bookId) }).catch(err => console.log(err.message));
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].id) }).catch(err => console.log(err.message));
   }
 // const getAllComments = (userId) => {
 //   await axios.get(`${apiPath}/${userId}/comments`).then((res))
@@ -72,10 +73,9 @@ const getCommentsByBookID = (bookId, comments) => {
 
 
   // ADD NEW POSTING
-  const postNewComment = async (userId, data) => {
-    await axios.post(`${apiPath}/${userId}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
+  const postNewComment = async (data, id) => {
+    await axios.post(`${apiPath}/${id}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
   }
-
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
   //////////////////////////////////////////////////////////////////////////
@@ -169,13 +169,15 @@ const handleNewCommentSubmit = (event) => {
   const comment = {
     text: newComment,
     author: loggedInUser.name,
-    bookId: currentBook.id,
+    bookId: currentBookId,
   }
   postNewComment(comment);
   comments.push(comment);
   setNewComment('');
   console.log(comment);
 }
+console.log('currentBook', currentBook)
+console.log('currentBookID', currentBookId);
 
 // Handle Comment Change
 const handleNewCommentChange = (event) => {
