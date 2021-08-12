@@ -1,7 +1,6 @@
 import React from 'react';
 import './banner.css';
 import logo from '../../images/bookshelf-logo.png';
-import loginAvatar from '../../images/login-placeholder.png';
 import BannerActionBar from '../bannerActionBar/bannerActionBar';
 
 const Banner = (props) => {

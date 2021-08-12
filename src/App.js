@@ -58,12 +58,12 @@ const App = () => {
   
 // Get Current Book
   const getCurrentBook = (searchText) => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].id.bookId) }).catch(err => console.log(err.message));
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].bookId) }).catch(err => console.log(err.message));
   }
-
 // const getAllComments = (userId) => {
 //   await axios.get(`${apiPath}/${userId}/comments`).then((res))
 // }
+
 
 // Get Book Comment by Book ID
 const getCommentsByBookID = (bookId, comments) => {
@@ -73,7 +73,7 @@ const getCommentsByBookID = (bookId, comments) => {
 
   // ADD NEW POSTING
   const postNewComment = async (userId, data) => {
-    await axios.post(`${apiPath}/${userId}/comment`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
+    await axios.post(`${apiPath}/${userId}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
   }
 
   //////////////////////////////////////////////////////////////////////////
@@ -85,7 +85,6 @@ const getCommentsByBookID = (bookId, comments) => {
     getAllUsers();
     console.log('getAllUsers');
   }, [loggedInUser])
-
 
 
   useEffect(() => {
@@ -168,13 +167,14 @@ const handleSearchChange = (event) => {
 const handleNewCommentSubmit = (event) => {
   event.preventDefault();
   const comment = {
-    text: postNewComment,
-    author: loggedInUser,
-    bookId: currentBookId,
+    text: newComment,
+    author: loggedInUser.name,
+    bookId: currentBook.id,
   }
   postNewComment(comment);
   comments.push(comment);
   setNewComment('');
+  console.log(comment);
 }
 
 // Handle Comment Change
