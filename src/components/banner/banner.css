@@ -24,6 +24,11 @@
     width: 100px;
     margin:0;
  }
+
+ .banner-action-bar img{
+    width: 50px;
+    margin: 0;
+ }
  
  .banner .user-info {
     font-size: 1.2em;
