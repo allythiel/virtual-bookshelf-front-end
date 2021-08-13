@@ -61,9 +61,6 @@ console.log('loggedInUser Test', loggedInUser);
   const getCurrentBook = (searchText) => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].id) }).catch(err => console.log(err.message));
   }
-// const getAllComments = (userId) => {
-//   await axios.get(`${apiPath}/${userId}/comments`).then((res))
-// }
 
 
 // Get Book Comment by Book ID
@@ -73,8 +70,8 @@ const getCommentsByBookID = (bookId, comments) => {
 
 
   // ADD NEW POSTING
-  const postNewComment = async (data, id) => {
-    await axios.post(`${apiPath}/${id}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
+  const postNewComment = async (data) => {
+    await axios.post(`${apiPath}/${loggedInUser._id}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
   }
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
@@ -169,7 +166,7 @@ const handleNewCommentSubmit = (event) => {
   const comment = {
     text: newComment,
     author: loggedInUser.name,
-    bookId: currentBookId,
+    book: currentBookId,
   }
   postNewComment(comment);
   comments.push(comment);
@@ -184,6 +181,8 @@ const handleNewCommentChange = (event) => {
   setNewComment(event.target.value);
 }
 
+// //Handle Book Add
+// const handleBookAddition = (event) => 
 
   return (
     <div id='app' className='App'>
