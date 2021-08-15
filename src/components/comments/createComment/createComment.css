@@ -1,0 +1,13 @@
+.create-comment {
+    margin: 0px;
+    margin-bottom: 0px;
+}
+
+.create-comment .add-comment {
+    text-align: left;
+    width: 100%;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border: none;
+}
+

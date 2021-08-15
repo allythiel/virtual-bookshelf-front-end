@@ -1,3 +1,19 @@
 .app {
   background-color: white;
+  text-align: center;
+  margin: 0px;
+}
+
+.context {
+  height: 100%;
+   text-align: center;
+}
+
+.context > div {
+   display: flex;
+   margin-top: 25px;
+   width: 100%;
+   flex-direction: row;
+   justify-content: space-around;
+   flex-wrap: wrap;
 }

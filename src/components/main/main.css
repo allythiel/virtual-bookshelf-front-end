@@ -1,4 +1,8 @@
 .Main {
+    margin: 0;
+ }
+ 
+.Main .virtual-library {
     display: flex;
     margin-top: 150px;
     width: 100%;
