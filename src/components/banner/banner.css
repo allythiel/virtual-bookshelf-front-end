@@ -1,42 +1,46 @@
 .banner {
-    text-align: left;
-    width: 100%;
-    display:flex;
- }
- 
- .banner > div {
-    min-width: 200px;
-    margin-right: 50px;
-    display: flex;
- 
- }
- 
- .banner > div h1, .banner > div p {
-    line-height: .9em;
- }
- 
- .banner > div p {
-    margin-left: 5px;
-    font-style: italic;
- }
+   text-align: left;
+   width: 100%;
+   display:flex;
+   justify-content: space-between;
+}
 
- .banner img{
-    width: 100px;
-    margin:0;
- }
+.banner > div {
+   min-width: 200px;
+   margin-right: 50px;
+   display: flex;
 
- .banner-action-bar img{
-    width: 40px;
-    margin: 0;
- }
- 
- .banner .user-info {
-    font-size: 1.2em;
-    font-weight: bold;
- }
- 
- .banner h1 {
-    font-family: 'Times New Roman', Times, serif;
-    color: var(--theme-dark);
-    font-size: 2.5em;
- }
+}
+
+.banner > div h1, .banner > div p {
+   line-height: .9em;
+}
+
+.banner > div p {
+   margin-left: 5px;
+   font-style: italic;
+}
+
+.banner img{
+   width: 100px;
+   margin:0;
+   padding: 0;
+}
+
+.banner-action-bar img{
+   width: 40px;
+   margin: 0;
+}
+
+.banner .user-info {
+   font-size: 1.2em;
+   margin-top: 10px;
+   font-weight: bold;
+}
+
+.banner h1 {
+   font-family: 'Times New Roman', Times, serif;
+   color: var(--theme-dark);
+   font-size: 2.5em;
+}
+
