@@ -27,6 +27,7 @@ const App = () => {
   const [messageText, setMessageText] = useState('');
   const [showMessageBar, setShowMessageBar] = useState(false);
   const [newComment, setNewComment] = useState('');
+  const [commentCount, setCommentCount] = useState(0);
 
 
   //////////////////////////////////////////////////////////////////////////
@@ -65,7 +66,7 @@ console.log('loggedInUser Test', loggedInUser);
 
 // Get Book Comment by Book ID
 const getCommentsByBookID = (bookId, comments) => {
-  axios.get(`${apiPath}/${comments}/${bookId}`).then((res) => {setComments(res.data) }).catch((err) => console.log(err));
+  axios.get(`${apiPath}/${comments}/${bookId}`).then((res) => {setComments(res.data); setCommentCount(res.data.length) }).catch((err) => console.log(err));
 }
 
 
@@ -181,6 +182,11 @@ const handleNewCommentChange = (event) => {
   setNewComment(event.target.value);
 }
 
+// const commentHandle = (event) => {
+//   event.preventDefault();
+//   document.getElementById(current)
+// }
+
 // //Handle Book Add
 // const handleBookAddition = (event) => 
 
@@ -192,7 +198,7 @@ const handleNewCommentChange = (event) => {
       {!loggedIn && <AppLogin newUser={newUser} setNewUser={setNewUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
-        handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments}/>}
+        handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} />}
       </div>
     </div>
   );
