@@ -182,10 +182,6 @@ const handleNewCommentChange = (event) => {
   setNewComment(event.target.value);
 }
 
-// const commentHandle = (event) => {
-//   event.preventDefault();
-//   document.getElementById(current)
-// }
 
 // //Handle Book Add
 // const handleBookAddition = (event) => 
