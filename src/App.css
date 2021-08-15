@@ -4,16 +4,25 @@
   margin: 0px;
 }
 
-.context {
+.Context {
   height: 100%;
-   text-align: center;
+  text-align: center;
+  display: flex;
 }
 
-.context > div {
+.virtual-library{
+  display: flex;
+  flex-direction: row;
+}
+/* .app .context .virtual-library {
    display: flex;
    margin-top: 25px;
    width: 100%;
    flex-direction: row;
-   justify-content: space-around;
-   flex-wrap: wrap;
-}
+   justify-content: space-between;
+} */
+
+/* .App .Context .search-bar .virtual-library {
+  display: flex;
+  flex-direction: row;
+} */

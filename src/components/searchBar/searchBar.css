@@ -3,6 +3,7 @@
     min-width: 300px;
     max-width: 550px;
     min-height: 50px;
+    display: flex;
 }
 
 #search-bar input[type='text'] {

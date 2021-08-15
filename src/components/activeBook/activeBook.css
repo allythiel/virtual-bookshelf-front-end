@@ -2,10 +2,7 @@
    border-style: dashed;
    border-width: 5px;
    width: 590px;
-
-   margin: auto;
    padding: 10px;
-   margin-left: 440px;
    display: flex;
    flex-direction: row;
  }
@@ -28,4 +25,8 @@
     width: 225px;
     height: 338px;
     margin: center;
+ }
+
+ .active-book .view-comments {
+    flex-direction: column;
  }

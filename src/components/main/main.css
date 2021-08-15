@@ -1,12 +1,14 @@
 .Main {
     margin: 0;
+    display: flex;
  }
  
-.Main .virtual-library {
+ .search-bar {
+     display: flex;
+ }
+
+ .virtual-library {
     display: flex;
-    margin-top: 150px;
-    width: 100%;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    width: 100%;
  }
