@@ -1,6 +1,6 @@
 import React from 'react';
 import './bannerActionBar.css';
-import loginAvatar from '../../images/login-placeholder.png';
+import logout from '../../images/logout.png'
 
 const BannerActionBar = (props) => {
    return (
@@ -8,7 +8,7 @@ const BannerActionBar = (props) => {
          <div className="user-info">Hi, {props.loggedInUser.name.split(' ')[0]}
          </div>
 
-         <div className="login"><img onClick={props.handleLogin} src={loginAvatar}
+         <div className="login"><img onClick={props.handleLogin} src={logout}
             alt="" /></div>
       </div>
    )
