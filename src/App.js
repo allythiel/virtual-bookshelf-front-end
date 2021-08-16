@@ -23,7 +23,9 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [currentBook, setCurrentBook] = useState(null);
+  const [relatedBook, setRelatedBook] = useState(null);
   const [currentBookId, setCurrentBookId] = useState(null);
+  const [relatedBookId, setRelatedBookId] = useState(null);
   const [searchText, setSearchText] = useState('');
   const [messageText, setMessageText] = useState('');
   const [showMessageBar, setShowMessageBar] = useState(false);
@@ -65,6 +67,11 @@ console.log('loggedInUser Test', loggedInUser);
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setCurrentBook(response.data.items[0]); setCurrentBookId(response.data.items[0].id) }).catch(err => console.log(err.message));
   }
 
+// Get Related Books
+const getRelatedBooks = (searchText, index) => {
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setRelatedBook(response.data.items[index]); setRelatedBookId(response.data.items[index].id) }).catch(err => console.log(err.message));
+}
+
 
 // Get Book Comment by Book ID
 const getCommentsByBookID = (bookId, comments) => {
@@ -79,7 +86,7 @@ const getCommentsByBookID = (bookId, comments) => {
 
   // Add Book to Bookshelf
   const postAddBook = async (data) => {
-    await axios.post(`${currentBook}`).then((res) => (res.data)).catch((err) => { console.log(err); });
+    await axios.post(`${currentBook}`).then((res) => {setBookshelf(res.data) }).catch((err) => console.log(err));
   }
 
   //////////////////////////////////////////////////////////////////////////
@@ -96,6 +103,11 @@ const getCommentsByBookID = (bookId, comments) => {
   useEffect(() => {
     getCurrentBook();
     console.log('getCurrentBook');
+  }, [])
+
+  useEffect(() => {
+    getRelatedBooks();
+    console.log('getRelatedBook');
   }, [])
 
   useEffect(() => {
@@ -161,6 +173,7 @@ const handleCloseMessageBar = () => {
 const handleSearchSubmit = (event) => {
   event.preventDefault();
   getCurrentBook(searchText);
+  getRelatedBooks(searchText);
   setSearchText('');
 }
 
@@ -192,14 +205,12 @@ const handleNewCommentChange = (event) => {
 
 
 //Handle Book Add
-const handleNewBookshelfAdd = (event) => {
-  event.preventDefault();
+const handleNewBookshelfAdd = (currentBook) => {
   postAddBook(currentBook);
   bookshelf.push(currentBook);
   setNewBookshelf('');
-  console.log(currentBook);
+  console.log('handlebookshelf', bookshelf);
 }
-console.log('bookArray', bookshelf);
 
 
 //Handle Bookshelf Change
