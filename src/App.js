@@ -68,10 +68,9 @@ console.log('loggedInUser Test', loggedInUser);
   }
 
 // Get Related Books
-const getRelatedBooks = (searchText, index) => {
-  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setRelatedBook(response.data.items[index]); setRelatedBookId(response.data.items[index].id) }).catch(err => console.log(err.message));
+const getRelatedBooks = (searchText) => {
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setRelatedBook(response.data.items[1,2,3,4,5]); setRelatedBookId(response.data.items[1,2,3,4,5].id) }).catch(err => console.log(err.message));
 }
-
 
 // Get Book Comment by Book ID
 const getCommentsByBookID = (bookId, comments) => {
@@ -176,6 +175,7 @@ const handleSearchSubmit = (event) => {
   getRelatedBooks(searchText);
   setSearchText('');
 }
+console.log('getRelatedBooks', relatedBook)
 
 // Handle Search Change
 const handleSearchChange = (event) => {
