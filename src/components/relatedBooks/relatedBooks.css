@@ -1,6 +1,6 @@
 .relatedbooks {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border-style:dashed;
     border-width: 5px;
     width: 325px;
@@ -10,4 +10,9 @@
 
 .relatedbooks h2{
     text-align: center;
+}
+
+.relatedbooks img{
+    width: 100px;
+    margin: left;
 }
