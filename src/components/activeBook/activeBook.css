@@ -1,15 +1,14 @@
 .active-book {
-   border-style: dashed;
    border-width: 5px;
    width: 590px;
    padding: 10px;
    display: flex;
    flex-direction: row;
  }
-
+/* 
  .active-book .book-info {
     flex-direction: column;
- }
+ } */
  
  .active-book .book-info h2 {
     margin-top: 10px;

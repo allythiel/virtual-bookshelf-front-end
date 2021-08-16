@@ -9,6 +9,7 @@ import './App.css';
 
 const App = () => {
     const [comments, setComments] = useState('');
+    const [bookshelf, setBookshelf] = useState(null);
     const[users, setUsers] = useState(null);
     const[newUser, setNewUser] = useState({
       name: '',
@@ -27,6 +28,7 @@ const App = () => {
   const [messageText, setMessageText] = useState('');
   const [showMessageBar, setShowMessageBar] = useState(false);
   const [newComment, setNewComment] = useState('');
+  const [newBookshelf, setNewBookshelf] = useState(null);
   const [commentCount, setCommentCount] = useState(0);
 
 
@@ -74,6 +76,12 @@ const getCommentsByBookID = (bookId, comments) => {
   const postNewComment = async (data) => {
     await axios.post(`${apiPath}/${loggedInUser._id}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
   }
+
+  // Add Book to Bookshelf
+  const postAddBook = async (data) => {
+    await axios.post(`${currentBook}`).then((res) => (res.data)).catch((err) => { console.log(err); });
+  }
+
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
   //////////////////////////////////////////////////////////////////////////
@@ -183,8 +191,21 @@ const handleNewCommentChange = (event) => {
 }
 
 
-// //Handle Book Add
-// const handleBookAddition = (event) => 
+//Handle Book Add
+const handleNewBookshelfAdd = (event) => {
+  event.preventDefault();
+  postAddBook(currentBook);
+  bookshelf.push(currentBook);
+  setNewBookshelf('');
+  console.log(currentBook);
+}
+console.log('bookArray', bookshelf);
+
+
+//Handle Bookshelf Change
+const handleBookshelfChange = (event) => {
+  setNewBookshelf(event.target.value);
+}
 
   return (
     <div id='app' className='App'>
@@ -194,7 +215,8 @@ const handleNewCommentChange = (event) => {
       {!loggedIn && <AppLogin newUser={newUser} setNewUser={setNewUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
-        handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} />}
+        handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} 
+        bookshelf = {bookshelf} setBookshelf={setBookshelf} newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} handleNewBookshelfAdd={handleNewBookshelfAdd} handleBookshelfChange={handleBookshelfChange}/>}
       </div>
     </div>
   );
