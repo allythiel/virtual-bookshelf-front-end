@@ -69,7 +69,7 @@ console.log('loggedInUser Test', loggedInUser);
 
 // Get Related Books
 const getRelatedBooks = (searchText) => {
-  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setRelatedBook(response.data.items[1,2,3,4,5]); setRelatedBookId(response.data.items[1,2,3,4,5].id) }).catch(err => console.log(err.message));
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${apiKey}`).then(response => {console.log(response.data.items); setRelatedBook(response.data.items); setRelatedBookId(response.data.items.id) }).catch(err => console.log(err.message));
 }
 
 // Get Book Comment by Book ID
