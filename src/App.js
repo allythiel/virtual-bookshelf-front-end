@@ -226,6 +226,7 @@ const handleBookshelfChange = (event) => {
       {!loggedIn && <AppLogin newUser={newUser} setNewUser={setNewUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
+        relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId}
         handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} 
         bookshelf = {bookshelf} setBookshelf={setBookshelf} newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} handleNewBookshelfAdd={handleNewBookshelfAdd} handleBookshelfChange={handleBookshelfChange}/>}
       </div>
