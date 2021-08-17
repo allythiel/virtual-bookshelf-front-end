@@ -203,12 +203,12 @@ const handleNewCommentChange = (event) => {
   setNewComment(event.target.value);
 }
 
-const handleNewAdd = () => {
+const handleNewAdd = (event) => {
+  event.preventDefault();
   bookshelf.push(currentBook);
   setBookshelf([]);
-  console.log(bookshelf);
+  console.log('bookshelfAdd',bookshelf);
 }
-console.log('add to bookshelf', bookshelf);
 
 const handleNewAddChange = (event) => {
   setBookshelf(event.target.value);
