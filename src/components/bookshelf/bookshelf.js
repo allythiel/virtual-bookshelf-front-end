@@ -5,13 +5,12 @@ const Bookshelf = (props) => {
     console.log('Add Book', props.bookshelf)
     return (
         <div className='bookshelf'>
-            <div>
-                <h2>Bookshelf</h2> <button onClick={() => {props.handleNewBookshelfAdd(props.bookshelf, props.index) }}> Add To Bookshelf</button>
+                <h2>Bookshelf</h2>
+                <h4> Total Books: {props.commentCount}  </h4>
+        <div className="add-books">
+            <button onClick={() => {props.handleBookshelfAdd(props.bookshelf) }}> Add To Bookshelf</button>
                 <div><img src={props.currentBook.volumeInfo.imageLinks.thumbnail} alt="" /></div>
             </div>
-        <div className="add-books">
-            {/* <button onClick={() => {props.handleNewBookshelfAdd(props.bookshelf[props.index], props.index) }}> Add </button> */}
-        </div>
         </div>
     )
 }

@@ -32,6 +32,7 @@ const App = () => {
   const [newComment, setNewComment] = useState('');
   const [newBookshelf, setNewBookshelf] = useState(null);
   const [commentCount, setCommentCount] = useState(0);
+  const [bookshelfCount, setBookshelfCount] = useState(0);
 
 
   //////////////////////////////////////////////////////////////////////////
@@ -85,8 +86,9 @@ const getCommentsByBookID = (bookId, comments) => {
 
   // Add Book to Bookshelf
   const postAddBook = async (data) => {
-    await axios.post(`${currentBook}`).then((res) => {setBookshelf(res.data) }).catch((err) => console.log(err));
+    await axios.post(`${currentBook}`, data).then((res) => {setBookshelf(res.data.items); setBookshelfCount(res.data.length) }).catch((err) => console.log(err));
   }
+
 
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
@@ -118,6 +120,7 @@ const getCommentsByBookID = (bookId, comments) => {
     postUserLogin(loginData);
     console.log('postUserLogin');
   }, [loginData])
+
 
   useEffect(() => {
     getCommentsByBookID(currentBookId);
@@ -203,19 +206,19 @@ const handleNewCommentChange = (event) => {
   setNewComment(event.target.value);
 }
 
-
 //Handle Book Add
-const handleNewBookshelfAdd = (currentBook) => {
+const handleBookshelfAdd = () => {
   postAddBook(currentBook);
   bookshelf.push(currentBook);
-  setNewBookshelf('');
+  setBookshelf('');
   console.log('handlebookshelf', bookshelf);
 }
+console.log(bookshelf)
 
 
 //Handle Bookshelf Change
 const handleBookshelfChange = (event) => {
-  setNewBookshelf(event.target.value);
+  setBookshelf(event.target.value);
 }
 
   return (
@@ -228,7 +231,7 @@ const handleBookshelfChange = (event) => {
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
         relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId}
         handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} 
-        bookshelf={bookshelf} setBookshelf={setBookshelf} newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} handleNewBookshelfAdd={handleNewBookshelfAdd} handleBookshelfChange={handleBookshelfChange}/>}
+        bookshelf={bookshelf} setBookshelf={setBookshelf} newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} handleBookshelfAdd={handleBookshelfAdd} handleBookshelfChange={handleBookshelfChange} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount}/>}
       </div>
     </div>
   );

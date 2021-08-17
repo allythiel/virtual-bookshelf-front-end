@@ -7,7 +7,7 @@ const Banner = (props) => {
    return (
       <div className='banner'>
          <div>
-            <div><img src={logo} alt="" onClick={()=>{props.setLoggedInUser(props.loggedinUser)}} /></div>
+            <div><img src={logo} alt="" onClick={()=>{props.setLoggedInUser(props.loggedInUser)}} /></div>
             <div><h1>Virtual Bookshelf</h1></div>
          </div>
          <div>
