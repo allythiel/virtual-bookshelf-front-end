@@ -78,12 +78,20 @@ const getCommentsByBookID = (bookId, comments) => {
   axios.get(`${apiPath}/${comments}/${bookId}`).then((res) => {setComments(res.data); setCommentCount(res.data.length) }).catch((err) => console.log(err));
 }
 
-
   // ADD NEW POSTING
   const postNewComment = async (data) => {
     await axios.post(`${apiPath}/${loggedInUser._id}/comments`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
   }
 
+// ADD NEW BOOK TO BOOKSHELF
+const postNewBookshelf = async (data) => {
+  await axios.post(`${apiPath}/${loggedInUser._id}/comments/bookshelves`, data).then((res) => (res.data)).catch((err) => { console.log(err); });
+}
+
+  // GET ALL BOOKS
+const getAllBooks = async (bookId, comments) => {
+    await axios.get(`${apiPath}/${comments}/${bookId}/bookshelves}`).then((response) => { console.log(response.data.items); setBookshelf(response.data); setBookshelfCount(response.data.length); }).catch((err) => console.log(err.message));
+ }
 
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
@@ -107,6 +115,11 @@ const getCommentsByBookID = (bookId, comments) => {
   }, [])
 
   useEffect(() => {
+    getAllBooks();
+    console.log('getAllBooks');
+  }, [])
+
+  useEffect(() => {
     postNewUser(newUserData);
     console.log('postNewUser');
   }, [newUserData])
@@ -120,11 +133,10 @@ const getCommentsByBookID = (bookId, comments) => {
   useEffect(() => {
     getCommentsByBookID(currentBookId);
     console.log('getCommentsByBookId');
-  }, [currentBookId]);
+  }, [currentBookId])
 
 
-
-
+ 
   //////////////////////////////////////////////////////////////////////////
   //                              HANDLERS                             //
   //////////////////////////////////////////////////////////////////////////
@@ -205,15 +217,26 @@ const handleNewCommentChange = (event) => {
 
 const handleNewAdd = (event) => {
   event.preventDefault();
-  bookshelf.push(currentBook);
-  setBookshelf([]);
+  const book = {
+    kind: currentBook.kind,
+    bookshelf_id: currentBookId,
+    etag: currentBook.etag,
+    selfLink: currentBook.selfLink,
+    volumeInfo: currentBook.volumeInfo,
+    saleInfo: currentBook.saleInfo,
+    accessInfo: currentBook.accessInfo,
+    searchInfo: currentBook.searchInfo,
+  }
+  postNewBookshelf(book);
+  bookshelf.push(book);
+  setNewBookshelf([]);
   console.log('bookshelfAdd',bookshelf);
 }
+console.log('testing', bookshelf);
 
 const handleNewAddChange = (event) => {
   setBookshelf(event.target.value);
 }
-
 
   return (
     <div id='app' className='App'>
