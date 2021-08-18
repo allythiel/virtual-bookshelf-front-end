@@ -89,9 +89,10 @@ const postNewBookshelf = async (data) => {
 }
 
   // GET ALL BOOKS
-const getAllBooks = async (bookId, comments) => {
-    await axios.get(`${apiPath}/${comments}/${bookId}/bookshelves}`).then((response) => { console.log(response.data.items); setBookshelf(response.data); setBookshelfCount(response.data.length); }).catch((err) => console.log(err.message));
+const getAllBooks = (bookId, comments) => {
+    axios.get(`${apiPath}/${loggedInUser._id}/comments/bookId/bookshelves`).then((response) => { console.log(response.data); setBookshelf(response.data); setBookshelfCount(response.data.length); }).catch((err) => console.log(err.message));
  }
+ console.log('bookshelf', bookshelf)
 
   //////////////////////////////////////////////////////////////////////////
   //                              Use Effects                             //
@@ -229,13 +230,12 @@ const handleNewAdd = (event) => {
   }
   postNewBookshelf(book);
   bookshelf.push(book);
-  setNewBookshelf([]);
+  setNewBookshelf();
   console.log('bookshelfAdd',bookshelf);
 }
-console.log('testing', bookshelf);
 
 const handleNewAddChange = (event) => {
-  setBookshelf(event.target.value);
+  setNewBookshelf(event.target.value);
 }
 
   return (
