@@ -1,5 +1,6 @@
 import React from 'react';
-import './bookshelf.css'
+import './bookshelf.css';
+import ListBooks from './listBooks/listBooks';
 
 const Bookshelf = (props) => {
 
@@ -8,7 +9,7 @@ const Bookshelf = (props) => {
                 <h2>Bookshelf</h2>
                 <h4> Total Books: {props.bookshelf.length}  </h4>
         <div className="add-books">
-            <button onClick={(event) => {
+            <form onClick={(event) => {
                 props.handleNewAdd(event)
                 }
             }>
@@ -16,8 +17,7 @@ const Bookshelf = (props) => {
                 onChange={props.handleNewAddChange}
                 value={props.newBookshelf}>
 
-                </button>
-                 Add To Bookshelf</button>
+                 Add To Bookshelf</button></form>
 
         </div>
         </div>
