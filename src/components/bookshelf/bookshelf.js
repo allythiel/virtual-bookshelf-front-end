@@ -18,7 +18,9 @@ const Bookshelf = (props) => {
                 value={props.newBookshelf}>
 
                  Add To Bookshelf</button></form>
-
+        <div className='list-books'>
+            <ListBooks users={props.users} currentBook={props.currentBook} setCurrentBook={props.setCurrentBook} loggedInUser={props.loggedInUser} setLoggedInUser={props.setLoggedInUser} newBookshelf={props.newBookshelf} setNewBookshelf={props.setNewBookshelf}  bookshelfCount={props.bookshelfCount} setBookshelfCount={props.setBookshelfCount} bookshelf={props.bookshelf} setBookshelf={props.setBookshelf} handleNewAdd={props.handleNewAdd} handleNewAddChange={props.handleNewAddChange}/>
+        </div>
         </div>
         </div>
     )

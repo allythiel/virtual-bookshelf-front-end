@@ -89,8 +89,8 @@ const postNewBookshelf = async (data) => {
 }
 
   // GET ALL BOOKS
-const getAllBooks = (bookId, comments) => {
-    axios.get(`${apiPath}/${loggedInUser._id}/comments/bookId/bookshelves`).then((response) => { console.log(response.data); setBookshelf(response.data); setBookshelfCount(response.data.length); }).catch((err) => console.log(err.message));
+const getAllBooks =  () => {
+    axios.get(`${apiPath}/id/comments/bookId/bookshelves`).then((response) => { console.log(response.data); setBookshelf(response.data); setBookshelfCount(response.data.length); }).catch((err) => console.log(err.message));
  }
  console.log('bookshelf', bookshelf)
 
@@ -219,14 +219,14 @@ const handleNewCommentChange = (event) => {
 const handleNewAdd = (event) => {
   event.preventDefault();
   const book = {
-    kind: currentBook.kind,
-    bookshelf_id: currentBookId,
-    etag: currentBook.etag,
-    selfLink: currentBook.selfLink,
-    volumeInfo: currentBook.volumeInfo,
-    saleInfo: currentBook.saleInfo,
-    accessInfo: currentBook.accessInfo,
-    searchInfo: currentBook.searchInfo,
+    kind1: currentBook.kind,
+    bookshelf_id1: currentBookId,
+    etag1: currentBook.etag,
+    selfLink1: currentBook.selfLink,
+    volumeInfo1: currentBook.volumeInfo,
+    saleInfo1: currentBook.saleInfo,
+    accessInfo1: currentBook.accessInfo,
+    searchInfo1: currentBook.searchInfo,
   }
   postNewBookshelf(book);
   bookshelf.push(book);
