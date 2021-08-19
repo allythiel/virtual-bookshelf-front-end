@@ -240,7 +240,7 @@ const handleNewAddChange = (event) => {
 
 const handleBookshelfClick = (book) => {
   setCurrentBook(book);
-  setCurrentBookId(book.bookshelf_id)
+  setCurrentBookId(book._id.bookshelf_id1)
 }
 
   return (

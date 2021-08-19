@@ -8,3 +8,14 @@
 .bookshelf h2{
     text-align: center;
 }
+ 
+
+.bookshelf .list-comments img {
+        width: 100px;
+        margin: left;
+    }
+    
+.bookshelf .list-comments{
+        display: flex;
+        flex-direction: row;
+    }

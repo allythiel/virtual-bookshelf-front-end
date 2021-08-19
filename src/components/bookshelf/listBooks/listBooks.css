@@ -1,0 +1,9 @@
+.list-comments img {
+    width: 100px;
+    margin: left;
+}
+
+.list-comments{
+    display: flex;
+    flex-direction: row;
+}
