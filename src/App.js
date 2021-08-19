@@ -234,9 +234,13 @@ const handleNewAdd = (event) => {
   console.log('bookshelfAdd',bookshelf);
 }
 
-
 const handleNewAddChange = (event) => {
   setNewBookshelf(event.target.value);
+}
+
+const handleBookshelfClick = (book) => {
+  setCurrentBook(book);
+  setCurrentBookId(book.bookshelf_id)
 }
 
   return (
@@ -249,7 +253,7 @@ const handleNewAddChange = (event) => {
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
         relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId}
         handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} 
-       newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount} bookshelf={bookshelf} setBookshelf={setBookshelf} handleNewAdd={handleNewAdd} handleNewAddChange={handleNewAddChange} />}
+       newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount} bookshelf={bookshelf} setBookshelf={setBookshelf} handleNewAdd={handleNewAdd} handleNewAddChange={handleNewAddChange} handleBookshelfClick={handleBookshelfClick}/>}
       </div>
     </div>
   );
