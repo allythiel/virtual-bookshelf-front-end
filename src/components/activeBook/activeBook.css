@@ -1,9 +1,15 @@
-.active-book {
-   border-width: 5px;
-   width: 590px;
-   padding: 10px;
+.active-book .book-info{
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
+ }
+
+ .active-book .book-image{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    border:black;
+    border-style:solid;
+    border-width: 2px;
  }
  
  .active-book .book-info h2 {
@@ -23,7 +29,8 @@
     margin: center;
  }
 
- .active-book .book-info .view-comments {
-    display: block;
-    flex-direction: column;
+ .active-book {
+    border-width: 5px;
+    width: 600px;
+    padding: 10px;
  }
