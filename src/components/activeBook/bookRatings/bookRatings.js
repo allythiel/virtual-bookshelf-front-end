@@ -6,7 +6,7 @@ import { ThumbUpAlt } from '@material-ui/icons';
 const BookRatings = (props) => {
     console.log('bookRatings', props.currentBook)
     return (
-        <div className='book-ratings'>
+        <div className='book-rate'>
             <ThumbUpAlt />
             <ThumbDownAlt />
             
