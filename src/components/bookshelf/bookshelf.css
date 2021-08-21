@@ -10,12 +10,12 @@
 }
  
 
-.bookshelf .list-comments img {
-        width: 100px;
+.bookshelf .list-books img {
+        width: 75px;
         margin: left;
     }
     
-.bookshelf .list-comments{
+.bookshelf .books{
         display: flex;
         flex-direction: row;
     }
