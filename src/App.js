@@ -243,6 +243,13 @@ const handleBookshelfClick = (book) => {
   console.log('bookClick', book)
 }
 
+const handleLike = (currentBookId) => {
+  const selectedBook = currentBook;
+  const data = {
+
+  }
+}
+
 
   return (
     <div id='app' className='App'>

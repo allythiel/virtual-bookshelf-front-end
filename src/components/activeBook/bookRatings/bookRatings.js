@@ -7,8 +7,8 @@ const BookRatings = (props) => {
     console.log('bookRatings', props.currentBook)
     return (
         <div className='book-ratings'>
-            <button onClick={() => {props.handleLike}}><ThumbUpAlt /></button>
-            <button onClick={() => {props.handleDislike}}><ThumbDownAlt /></button>
+            <ThumbUpAlt />
+            <ThumbDownAlt />
             
         </div>
     )
