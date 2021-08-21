@@ -26,6 +26,7 @@
     margin: center;
  }
 
- .active-book .view-comments {
+ .active-book .book-info .view-comments {
+    display: block;
     flex-direction: column;
  }
