@@ -10,11 +10,12 @@
     border-width: 2px;
  }
  
- .active-book .book-info h2 {
-    margin-top: 10px;
+ .active-book .book-info p {
+    margin-top: 2px;
     color: #000000;
-    padding-left: 5px;;
+    padding-left: 15px;;
     display: flex;
+    text-align: left;
  }
  
  .active-book .book-info h3 {
@@ -39,7 +40,8 @@
  .active-book .book-ratings {
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
+    padding: 10px;
+    align-items: center;
  }
 
  .active-book .view-comments {

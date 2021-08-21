@@ -13,8 +13,8 @@ const ActiveBook = (props) => {
                     {props.currentBook ? props.currentBook.volumeInfo ? <div><h3>{props.currentBook.volumeInfo.title} - {props.currentBook.volumeInfo.authors}</h3></div> : '' : '' }
                     {props.currentBook ? props.currentBook.volumeInfo ? <div><p>{props.currentBook.volumeInfo.description}</p> </div> : '' : '' } </div></div>
                 <div className='book-ratings'>
-                {props.currentBook ? props.currentBook.volumeInfo ? <div><h4>Average Rating: {props.currentBook.volumeInfo.averageRating} </h4> </div> : '' : '' }  
-                {props.currentBook ? <BookRatings users={props.users} currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/> : '' } </div>
+                {props.currentBook ? props.currentBook.volumeInfo ? <div><h4>Average Rating: {props.currentBook.volumeInfo.averageRating} </h4> </div> : '' : '' }  <span>
+                {props.currentBook ? <BookRatings users={props.users} currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/> : '' } </span></div>
             <div className='view-comments'>
             {props.currentBook ? <CreateComment users={props.users} handleNewCommentChange={props.handleNewCommentChange} handleNewCommentSubmit={props.handleNewCommentSubmit} newComment = {props.newComment} setNewComment={props.setNewComment} comments={props.comments} setComments={props.setComments}/>  : ''}
             {props.currentBook ? <ListComments users={props.users} newComment={props.newComment} setNewComment={props.setNewComment} comments={props.comments} setComments={props.setComments} commentCount={props.commentCount} setCommentCount={props.setCommentCount} /> : '' }
