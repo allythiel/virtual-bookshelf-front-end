@@ -6,7 +6,7 @@ const ListBooks = (props) => {
         <div className='list-books'>
             <div>
             {props.bookshelf.map((book) => {
-                return(<ul key={book._id}> <img src={book.volumeInfo1.imageLinks.smallThumbnail} alt=''/> {console.log('bookID Test', book.volumeInfo1)} </ul>)
+                return(<li key={book._id}> <img src={book.volumeInfo1.imageLinks.smallThumbnail} alt=''/> </li>)
             }) }
             </div>
         </div>

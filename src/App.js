@@ -239,16 +239,11 @@ const handleNewAddChange = (event) => {
 }
 
 const handleBookshelfClick = (book) => {
-  setCurrentBook(book);
+  setCurrentBook(bookshelf);
+  setCurrentBookId(book);
   console.log('bookClick', book)
 }
 
-const handleLike = (currentBookId) => {
-  const selectedBook = currentBook;
-  const data = {
-
-  }
-}
 
 
   return (
