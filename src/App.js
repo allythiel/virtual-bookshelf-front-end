@@ -240,8 +240,9 @@ const handleNewAddChange = (event) => {
 
 const handleBookshelfClick = (book) => {
   setCurrentBook(book);
-  setCurrentBookId(book._id.bookshelf_id1)
+  console.log('bookClick', book)
 }
+
 
   return (
     <div id='app' className='App'>
