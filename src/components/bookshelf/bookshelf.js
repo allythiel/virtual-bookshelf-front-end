@@ -6,7 +6,7 @@ const Bookshelf = (props) => {
 
     return (
         <div className='bookshelf'>
-                <h2>Bookshelf</h2>
+                <h1>Bookshelf</h1>
                 <h4> Total Books: {props.bookshelf.length}  </h4>
         <div className="add-books">
             <form onClick={(event) => {
