@@ -239,11 +239,15 @@ const handleNewAddChange = (event) => {
 }
 
 const handleBookshelfClick = (book) => {
-  setCurrentBook(bookshelf);
-  setCurrentBookId(book);
+  setCurrentBook(book);
+  setCurrentBookId(book._id.bookshelfId1);
   console.log('bookClick', book)
 }
 
+const handleRelatedClick = (event) => {
+  setCurrentBook(event.target.value);
+  setCurrentBookId(event.target.value);
+}
 
 
   return (
@@ -254,9 +258,9 @@ const handleBookshelfClick = (book) => {
       {!loggedIn && <AppLogin newUser={newUser} setNewUser={setNewUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
-        relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId}
+        relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId} handleRelatedClick={handleRelatedClick}
         handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} 
-       newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount} bookshelf={bookshelf} setBookshelf={setBookshelf} handleNewAdd={handleNewAdd} handleNewAddChange={handleNewAddChange} handleBookshelfClick={handleBookshelfClick}/>}
+       newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount} bookshelf={bookshelf} setBookshelf={setBookshelf} handleNewAdd={handleNewAdd} handleNewAddChange={handleNewAddChange} handleBookshelfClick={handleBookshelfClick} />}
       </div>
     </div>
   );
