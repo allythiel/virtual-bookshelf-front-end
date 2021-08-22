@@ -1,16 +1,47 @@
-.relatedbooks {
+.related-books {
     display: flex;
     flex-direction: column;
     width: 300px;
     height: 700px;
-    /* margin-left: 1075px; */
+    align-items: left;
 }
 
-.relatedbooks h2{
+.related-books h2{
     text-align: center;
 }
 
-.relatedbooks img{
+.related-books img{
     width: 100px;
     margin: left;
+}
+
+.related-books .related-book-one{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.related-books .related-book-two{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.related-books .related-book-three{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.related-books .related-book-four{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
 }
