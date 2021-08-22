@@ -3,6 +3,9 @@
     height: 700px;
     padding: 0px;
     margin-bottom: 0px;
+    border: black;
+    border-style: solid;
+    border-width: 3px;
 }
 
 .bookshelf h1{

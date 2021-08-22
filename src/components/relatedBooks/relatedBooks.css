@@ -4,6 +4,9 @@
     width: 300px;
     height: 700px;
     align-items: left;
+    border: black;
+    border-style: solid;
+    border-width: 3px;
 }
 
 .related-books h2{

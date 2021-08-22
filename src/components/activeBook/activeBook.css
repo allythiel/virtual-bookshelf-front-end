@@ -29,12 +29,11 @@
  }
 
  .active-book {
-    border-width: 5px;
     width: 650px;
     padding: 10px;
-    border: black;
+    /* border: black;
     border-style: solid;
-    border-width: 2px;
+    border-width: 2px; */
  }
 
  .active-book .book-ratings {
