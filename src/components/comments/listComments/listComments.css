@@ -1,0 +1,17 @@
+.list-comment {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+}
+
+.list-comment h3 {
+    padding: 0px;
+    text-align: right;
+    margin-bottom: 0px;
+}
+
+.list-comment li {
+    list-style-type: none;
+}

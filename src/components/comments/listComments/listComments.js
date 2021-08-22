@@ -3,11 +3,11 @@ import './listComments.css';
 
 const ListComments = (props) => {
     return (
-        <div className='list-comments'>
-            <h2> {props.commentCount} Reviews </h2>
+        <div className='list-comment'>
+            <h3> Total Reviews: {props.commentCount} </h3>
             <div>
             {props.comments.map((comment) => {
-                return(<li key={comment._id}>{comment.text} </li>)
+                return(<li key={comment._id}>{comment.author} : {comment.text} </li>)
             }) }
             </div>
         </div>
