@@ -13,7 +13,7 @@ const ActiveBook = (props) => {
                     {props.currentBook ? props.currentBook.volumeInfo ? <div><h3>{props.currentBook.volumeInfo.title} - {props.currentBook.volumeInfo.authors}</h3></div> : '' : '' }
                     {props.currentBook ? props.currentBook.volumeInfo ? <div><p>{props.currentBook.volumeInfo.description}</p> </div> : '' : '' } </div></div>
                 <div className='book-ratings'>
-                {props.currentBook ? props.currentBook.volumeInfo ? <div><h4>Average Rating: {props.currentBook.volumeInfo.averageRating} </h4> </div> : '' : '' }  
+                {props.currentBook ? props.currentBook.volumeInfo ? <div><h4>Average Rating: {props.currentBook.volumeInfo.averageRating} /5</h4> </div> : '' : '' }  
                     <div className='rating-icons'>
                     {props.currentBook ? <BookRatings users={props.users} currentBook={props.currentBook} setCurrentBook={props.setCurrentBook}/> : '' } </div></div>
             <div className='view-comments'>

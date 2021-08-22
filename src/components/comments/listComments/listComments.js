@@ -5,7 +5,7 @@ const ListComments = (props) => {
     return (
         <div className='list-comment'>
             <h3> Total Reviews: {props.commentCount} </h3>
-            <div>
+            <div className-product-map>
             {props.comments.map((comment) => {
                 return(<li key={comment._id}>{comment.author} : {comment.text} </li>)
             }) }
