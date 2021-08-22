@@ -14,8 +14,8 @@
 }
  
 .bookshelf .list-books img {
-    width: 100px;
-    height: 150px;
+    width: 85px;
+    height: 130px;
     margin: left;
     padding: 4px;
 }
@@ -25,5 +25,5 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 4px;
-    align-items: left;
+    text-align: left;
 }
