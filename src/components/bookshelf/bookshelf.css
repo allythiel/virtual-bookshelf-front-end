@@ -14,7 +14,8 @@
 }
  
 .bookshelf .list-books img {
-    width: 80px;
+    width: 100px;
+    height: 150px;
     margin: left;
     padding: 4px;
 }
