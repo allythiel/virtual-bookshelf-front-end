@@ -8,7 +8,7 @@ const Banner = (props) => {
       <div className='banner'>
          <div>
             <div><img src={logo} alt="" onClick={()=>{props.setLoggedInUser(props.loggedInUser)}} /></div>
-            <div><h1>Virtual Bookshelf</h1></div>
+            <div><h1>Virtual Bookshelf</h1><p>A Bookworms Best Friend</p></div>
          </div>
          <div>
       <div className="banner-action-bar">
