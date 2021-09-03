@@ -3,7 +3,6 @@ import './relatedBooks.css';
 
 const RelatedBooks = (props) => {
     return (
-        <div id='view-listed-books' onClick={() => { props.handleRelatedClick(props.book)  }}>
         <div className="related-books">
             <h1>Related Books</h1>
             <div className="related-book-one">
@@ -18,7 +17,6 @@ const RelatedBooks = (props) => {
             <div className='related-book-four'>
             <img src={props.relatedBook[4].volumeInfo.imageLinks.thumbnail} alt="" />
                 {props.relatedBook ? props.relatedBook[4].volumeInfo ? <div><p>{props.relatedBook[4].volumeInfo.title} - {props.relatedBook[4].volumeInfo.authors}</p></div> : '' : '' } </div>
-        </div>
         </div>
     )
 }

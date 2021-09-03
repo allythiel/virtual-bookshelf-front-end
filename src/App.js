@@ -238,13 +238,25 @@ const handleNewAddChange = (event) => {
   setNewBookshelf(event.target.value);
 }
 
-const handleBookshelfClick = (book) => {
-  setCurrentBook(book);
-  setCurrentBookId(book._id.bookshelfId1);
-  console.log('bookClick', book)
+const handleClick = (event, book) => {
+  event.preventDefault();
+  const clickedBook = {
+    kind2: book.kind,
+    bookshelf_id2: book.id,
+    etag2: book.etag,
+    selfLink2: book.selfLink,
+    volumeInfo2: book.volumeInfo,
+    saleInfo2: book.saleInfo,
+    accessInfo2: book.accessInfo,
+    searchInfo2: book.searchInfo,
+  }
+  setCurrentBook(clickedBook);
+  setCurrentBookId(clickedBook.bookshelf_id2)
+  console.log('book Click', clickedBook);
 }
 
-const handleRelatedClick = (event) => {
+const handleClickChange = (event) => {
+  event.preventDefault();
   setCurrentBook(event.target.value);
   setCurrentBookId(event.target.value);
 }
@@ -258,9 +270,9 @@ const handleRelatedClick = (event) => {
       {!loggedIn && <AppLogin newUser={newUser} setNewUser={setNewUser} handleUserChange={handleUserChange} handleUserSubmit={handleUserSubmit} 
         register={register} setRegister={setRegister} setLoggedIn={setLoggedIn} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}
       {loggedIn  && <Main users={users} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} searchText={searchText} setSearchText={setSearchText} handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} currentBook={currentBook} setCurrentBook={setCurrentBook}
-        relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId} handleRelatedClick={handleRelatedClick}
+        relatedBook={relatedBook} setRelatedBook={setRelatedBook} relatedBookId={relatedBookId} setRelatedBookId={setRelatedBookId} handleClick={handleClick} handleClickChange={handleClickChange}
         handleNewCommentChange={handleNewCommentChange} handleNewCommentSubmit={handleNewCommentSubmit} newComment = {newComment} setNewComment={setNewComment} comments={comments} setComments={setComments} commentCount={commentCount} setCommentCount={setCommentCount} 
-       newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount} bookshelf={bookshelf} setBookshelf={setBookshelf} handleNewAdd={handleNewAdd} handleNewAddChange={handleNewAddChange} handleBookshelfClick={handleBookshelfClick} />}
+       newBookshelf={newBookshelf} setNewBookshelf={setNewBookshelf} bookshelfCount={bookshelfCount} setBookshelfCount={setBookshelfCount} bookshelf={bookshelf} setBookshelf={setBookshelf} handleNewAdd={handleNewAdd} handleNewAddChange={handleNewAddChange}  />}
       </div>
     </div>
   );
